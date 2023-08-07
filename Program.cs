@@ -22,13 +22,12 @@ namespace picacomic
         static async Task Main(string[] args)
         {
             var accountsString = args[0];
-            
-            
+
             if (args.Length == 0 || string.IsNullOrEmpty(accountsString))
             {
                 throw new Exception("请查看文档设置账号密码");
             }
-            
+
             var rawSplit = accountsString.Split('|');
 
             if (rawSplit.Length % 2 != 0)
@@ -40,7 +39,7 @@ namespace picacomic
                 .Select(b => b.ToArray())
                 .Select(b => new Account(b[0], b[1]))
                 .ToList();
-            
+
             for (int i = 0; i < accounts.Count; i++)
             {
                 await PunchAsync(accounts[i].Username, accounts[i].Password, i);
@@ -105,4 +104,3 @@ namespace picacomic
         }
     }
 }
-
