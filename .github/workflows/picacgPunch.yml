@@ -8,36 +8,31 @@ on:
     - '**'
     - '!.gitignore'
     - '!README.md'
-  
-    
-    
+
   schedule:
     - cron: '2 2 * * *'
 
 jobs:
 
   build:    
-  
+
     runs-on: ubuntu-latest
-    
-    
+
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Set Time
       run: sudo timedatectl set-timezone 'Asia/Shanghai'
-      
+
     - name: .Net Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '6.0.x'
-        
+
     - name: Build
       run: dotnet build -c Release
-      
+
     - name: Run
       env:        
         accounts: ${{secrets.ACCOUNTS}}
       run: dotnet run -- ${accounts}
-     
-        
