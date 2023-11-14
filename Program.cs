@@ -76,7 +76,7 @@ namespace picacomic
                 throw new Exception("签到失败");
             }
         }
-        
+
         //credit to https://github.com/morelinq/MoreLINQ/blob/master/MoreLinq/Batch.cs
         private static IEnumerable<IEnumerable<TSource>> Batch<TSource>(
             this IEnumerable<TSource> source, int size)
