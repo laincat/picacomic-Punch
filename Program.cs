@@ -25,7 +25,7 @@ namespace picacomic
 
             if (args.Length == 0 || string.IsNullOrEmpty(accountsString))
             {
-                throw new Exception("请查看文档，设置账号密码");
+                throw new Exception("请查看文档设置账号密码");
             }
 
             var rawSplit = accountsString.Split('|');
